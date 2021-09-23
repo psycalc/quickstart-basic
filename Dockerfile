@@ -32,7 +32,7 @@ RUN mkdir -p /home/$user/.composer && \
 #COPY --from=composer:latest /usr/bin/composer /user/bin/composer
 RUN apk add curl
 #RUN apk add php5 php5-json php5-phar php5-iconv php5-openssl php5-mbstring php5-curl php5-mysqli php5-pdo_mysql php5-dom --update  --repository=http://dl-cdn.alpinelinux.org/alpine/v3.5/community --repository=http://dl-cdn.alpinelinux.org/alpine/v3.5/main
-RUN apk add php5 php5-json php5-phar php5-iconv php5-openssl php5-fpm php5-curl php5-mysqli php5-pdo_mysql php5-dom php5-zip php5-ctype
+RUN apk add php5 php5-json php5-phar php5-iconv php5-openssl php5-fpm php5-curl php5-mysqli php5-pdo_mysql php5-dom php5-zip php5-ctype php5-openssl
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 # Set working directory
 RUN composer global require laravel/installer
