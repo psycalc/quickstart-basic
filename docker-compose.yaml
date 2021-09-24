@@ -9,16 +9,13 @@ services:
       db:
         condition: service_healthy
     image: quickstart-basic
-    container_name: quickstart-basic-app
+    container_name: laravel-app
     restart: unless-stopped
     ports:
       - 8080:80
-    working_dir: /var/www
-    volumes:
-      - ./:/var/www
   db:
       image: mysql:5.7
-      container_name: quickstart-db
+      container_name: laravel-db
       restart: unless-stopped
       environment:
         MYSQL_DATABASE: ${DB_DATABASE}
@@ -29,7 +26,7 @@ services:
         SERVICE_NAME: mysql
       healthcheck:
             test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
-            timeout: 20s
+            timeout: 10s
             retries: 10
       volumes:
       - my-datavolume:/var/lib/mysql
